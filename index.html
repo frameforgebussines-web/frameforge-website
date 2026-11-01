@@ -8,146 +8,88 @@
   <title>FrameForge | KI-gestützte Reels für Unternehmen</title>
   <style>
     :root{--bg:#090909;--panel:#121212;--gold:#d4af62;--gold-light:#f1d99a;--white:#f5f3ee;--muted:#a6a39c;--border:rgba(212,175,98,.23)}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1120px,90%);margin:auto}
-    .gold{color:var(--gold)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,90%);margin:auto}.gold{color:var(--gold)}
     header{position:sticky;top:0;z-index:10;background:rgba(9,9,9,.94);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
-    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{font-size:1.4rem;font-weight:800;letter-spacing:2px}.logo span{color:var(--gold)}
-    .nav-links{display:flex;align-items:center;gap:28px;font-size:.9rem;color:var(--muted)}
-    .nav-links a:hover{color:var(--gold)}.nav-cta{padding:10px 17px;border:1px solid var(--gold);color:var(--gold);border-radius:4px}
-    .button{display:inline-block;padding:14px 22px;border-radius:4px;font-weight:700;transition:.2s ease;cursor:pointer;border:1px solid var(--gold);font:inherit}
-    .button-primary{color:#111;background:var(--gold)}.button-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
-    .button-secondary{color:var(--gold);background:transparent}.button-secondary:hover{background:rgba(212,175,98,.1)}
-    .hero{min-height:620px;display:flex;align-items:center;padding:100px 0;background:radial-gradient(ellipse at 80% 30%,rgba(212,175,98,.11),transparent 45%)}
-    .hero-content{max-width:780px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:700;margin-bottom:24px}
-    h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.04;letter-spacing:-2px;margin-bottom:26px}h1 span{color:var(--gold)}
-    .hero p{color:var(--muted);max-width:610px;font-size:1.1rem;margin-bottom:32px}.hero-buttons{display:flex;flex-wrap:wrap;gap:14px}.hero-note{margin-top:26px;font-size:.82rem;color:var(--muted)}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-size:1.4rem;font-weight:800;letter-spacing:2px}.logo span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:.9rem;color:var(--muted)}.nav-links a:hover{color:var(--gold)}.nav-cta{padding:10px 17px;border:1px solid var(--gold);color:var(--gold);border-radius:4px}
+    .button{display:inline-block;padding:14px 22px;border-radius:4px;font-weight:700;transition:.2s ease;cursor:pointer;border:1px solid var(--gold);font:inherit}.button-primary{color:#111;background:var(--gold)}.button-primary:hover{background:var(--gold-light);transform:translateY(-2px)}.button-secondary{color:var(--gold);background:transparent}.button-secondary:hover{background:rgba(212,175,98,.1)}
+    .hero{padding:92px 0 70px;background:radial-gradient(ellipse at 80% 20%,rgba(212,175,98,.11),transparent 45%)}.hero-content{max-width:780px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:700;margin-bottom:24px}
+    h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.04;letter-spacing:-2px;margin-bottom:26px}h1 span{color:var(--gold)}.hero p{color:var(--muted);max-width:610px;font-size:1.1rem;margin-bottom:32px}.hero-buttons{display:flex;flex-wrap:wrap;gap:14px}.hero-note{margin-top:26px;font-size:.82rem;color:var(--muted)}
+    .demo-wrap{margin:52px auto 0;max-width:760px}.demo-title{text-align:center;font-size:clamp(1.25rem,3vw,1.8rem);margin-bottom:18px}.demo-frame{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#000;box-shadow:0 18px 60px rgba(0,0,0,.4)}.demo-frame video{display:block;width:100%;max-height:620px;object-fit:contain;background:#000}.demo-caption{text-align:center;color:var(--muted);font-size:.78rem;margin-top:12px}
     section{padding:90px 0}.section-heading{max-width:650px;margin-bottom:42px}.section-heading h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.15;margin-bottom:16px}.section-heading p{color:var(--muted)}
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.service-card{padding:28px;background:var(--panel);border:1px solid var(--border);border-radius:8px}
-    .service-number{color:var(--gold);font-size:.85rem;letter-spacing:2px;margin-bottom:20px}.service-card h3{font-size:1.25rem;margin-bottom:12px}.service-card p{color:var(--muted);font-size:.95rem}
-    .pricing{background:#0d0d0d}.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch}
-    .price-card{padding:34px;border:1px solid var(--border);background:var(--panel);border-radius:8px;display:flex;flex-direction:column}
-    .price-card.featured{border-color:var(--gold);box-shadow:0 0 35px rgba(212,175,98,.06)}
-    .price-label{color:var(--gold);text-transform:uppercase;font-size:.78rem;letter-spacing:2px;font-weight:700}
-    .price{font-size:3.2rem;font-weight:800;margin:12px 0}.price small{color:var(--muted);font-size:.9rem;font-weight:400}
-    .price-description{color:var(--muted);margin-bottom:25px}.features{list-style:none;margin-bottom:30px}
-    .features li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#ddd9d0}.features li::before{content:"✓";color:var(--gold);margin-right:10px}
-    .price-card .button{text-align:center;margin-top:auto}.pricing-note{color:var(--muted);font-size:.86rem;margin-top:24px}
-    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .portfolio-card{min-height:250px;padding:26px;border:1px solid var(--border);background:linear-gradient(145deg,rgba(212,175,98,.12),rgba(18,18,18,.96) 65%);border-radius:8px;display:flex;flex-direction:column;justify-content:flex-end}
-    .portfolio-tag{color:var(--gold);font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}.portfolio-card h3{font-size:1.3rem;margin-bottom:8px}.portfolio-card p{font-size:.9rem;color:var(--muted)}
-    .portfolio-notice{color:var(--muted);font-size:.85rem;margin-top:22px}
+    .stats{background:#0d0d0d;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.stat-card{padding:28px;background:var(--panel);border:1px solid var(--border);border-radius:8px}.stat-number{font-size:clamp(2.5rem,5vw,3.6rem);font-weight:800;color:var(--gold);line-height:1.1;margin-bottom:14px}.stat-card p{color:#ddd9d0}.stats-source{font-size:.78rem;color:var(--muted);margin-top:22px}.stats-source a{color:var(--gold);text-decoration:underline}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.service-card{padding:28px;background:var(--panel);border:1px solid var(--border);border-radius:8px}.service-number{color:var(--gold);font-size:.85rem;letter-spacing:2px;margin-bottom:20px}.service-card h3{font-size:1.25rem;margin-bottom:12px}.service-card p{color:var(--muted);font-size:.95rem}
+    .pricing{background:#0d0d0d}.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch}.price-card{padding:34px;border:1px solid var(--border);background:var(--panel);border-radius:8px;display:flex;flex-direction:column}.price-card.featured{border-color:var(--gold);box-shadow:0 0 35px rgba(212,175,98,.06)}.price-label{color:var(--gold);text-transform:uppercase;font-size:.78rem;letter-spacing:2px;font-weight:700}.price{font-size:3.2rem;font-weight:800;margin:12px 0}.price small{color:var(--muted);font-size:.9rem;font-weight:400}.price-description{color:var(--muted);margin-bottom:25px}.features{list-style:none;margin-bottom:30px}.features li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#ddd9d0}.features li::before{content:"✓";color:var(--gold);margin-right:10px}.price-card .button{text-align:center;margin-top:auto}.pricing-note{color:var(--muted);font-size:.86rem;margin-top:24px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.portfolio-card{min-height:250px;padding:26px;border:1px solid var(--border);background:linear-gradient(145deg,rgba(212,175,98,.12),rgba(18,18,18,.96) 65%);border-radius:8px;display:flex;flex-direction:column;justify-content:flex-end}.portfolio-tag{color:var(--gold);font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}.portfolio-card h3{font-size:1.3rem;margin-bottom:8px}.portfolio-card p{font-size:.9rem;color:var(--muted)}.portfolio-notice{color:var(--muted);font-size:.85rem;margin-top:22px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.step{border-top:1px solid var(--gold);padding-top:20px}.step-number{color:var(--gold);font-size:.85rem;letter-spacing:2px}.step h3{margin:12px 0}.step p{color:var(--muted);font-size:.95rem}
-    .contact-box{border:1px solid var(--border);border-radius:8px;padding:42px;background:radial-gradient(ellipse at 90% 10%,rgba(212,175,98,.10),transparent 55%),var(--panel)}
-    .contact-box h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}.contact-box>p{color:var(--muted);max-width:600px;margin-bottom:28px}
-    form{display:grid;gap:15px;max-width:650px}input,select,textarea{width:100%;padding:14px;border:1px solid #343434;border-radius:4px;background:#0a0a0a;color:var(--white);font:inherit}
-    input:focus,select:focus,textarea:focus{outline:1px solid var(--gold);border-color:var(--gold)}textarea{min-height:120px;resize:vertical}
-    .form-note{color:var(--muted);font-size:.8rem}
+    .contact-box{border:1px solid var(--border);border-radius:8px;padding:42px;background:radial-gradient(ellipse at 90% 10%,rgba(212,175,98,.10),transparent 55%),var(--panel)}.contact-box h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}.contact-box>p{color:var(--muted);max-width:600px;margin-bottom:28px}form{display:grid;gap:15px;max-width:650px}input,select,textarea{width:100%;padding:14px;border:1px solid #343434;border-radius:4px;background:#0a0a0a;color:var(--white);font:inherit}input:focus,select:focus,textarea:focus{outline:1px solid var(--gold);border-color:var(--gold)}textarea{min-height:120px;resize:vertical}.form-note{color:var(--muted);font-size:.8rem}
     footer{border-top:1px solid var(--border);padding:30px 0;color:var(--muted);font-size:.85rem}.footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}footer a:hover{color:var(--gold)}
-    @media(max-width:760px){.nav-links{gap:12px;font-size:.8rem}.nav-links .nav-optional{display:none}.nav-cta{padding:8px 10px}.hero{min-height:auto;padding:90px 0}.services-grid,.portfolio-grid,.steps,.pricing-grid{grid-template-columns:1fr}section{padding:65px 0}.price-card,.contact-box{padding:25px}h1{letter-spacing:-1px}}
+    @media(max-width:760px){.nav-links{gap:12px;font-size:.8rem}.nav-links .nav-optional{display:none}.nav-cta{padding:8px 10px}.hero{padding:72px 0 52px}.services-grid,.portfolio-grid,.steps,.pricing-grid,.stats-grid{grid-template-columns:1fr}section{padding:65px 0}.price-card,.contact-box{padding:25px}h1{letter-spacing:-1px}.demo-wrap{margin-top:38px}}
   </style>
 </head>
 <body>
 <header><nav class="container">
   <a href="#start" class="logo" aria-label="FrameForge Startseite">FRAME<span>FORGE</span></a>
-  <div class="nav-links">
-    <a href="#leistungen">Leistungen</a><a href="#preise">Preise</a><a href="#portfolio" class="nav-optional">Portfolio</a><a href="#kontakt" class="nav-cta">Kontakt</a>
-  </div>
+  <div class="nav-links"><a href="#leistungen">Leistungen</a><a href="#preise">Preise</a><a href="#portfolio" class="nav-optional">Portfolio</a><a href="#kontakt" class="nav-cta">Kontakt</a></div>
 </nav></header>
 <main>
-  <section class="hero" id="start"><div class="container hero-content">
-    <div class="eyebrow">KI-gestützter Content · Schweiz</div>
-    <h1>Dein Unternehmen.<br><span>Stark in Szene.</span></h1>
-    <p>Moderne Reels für Restaurants und lokale Unternehmen. Wir kombinieren KI-gestützte Videoproduktion, kreative Ideen und professionellen Schnitt, damit deine Marke online einen überzeugenden Eindruck hinterlässt.</p>
-    <div class="hero-buttons"><a href="#preise" class="button button-primary">Angebote entdecken</a><a href="#kontakt" class="button button-secondary">Projekt anfragen</a></div>
-    <div class="hero-note">Kreativer Content. Klarer Stil. Faire Einstiegspreise.</div>
+  <section class="hero" id="start"><div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">KI-gestützter Content · Schweiz</div>
+      <h1>Dein Unternehmen.<br><span>Stark in Szene.</span></h1>
+      <p>Moderne Reels für Restaurants und lokale Unternehmen. Wir kombinieren KI-gestützte Videoproduktion, kreative Ideen und professionellen Schnitt, damit deine Marke online einen überzeugenden Eindruck hinterlässt.</p>
+      <div class="hero-buttons"><a href="#preise" class="button button-primary">Angebote entdecken</a><a href="#kontakt" class="button button-secondary">Projekt anfragen</a></div>
+      <div class="hero-note">Kreativer Content. Klarer Stil. Faire Einstiegspreise.</div>
+    </div>
+    <div class="demo-wrap">
+      <h2 class="demo-title">So könnte ein Video von deinem Geschäft aussehen.</h2>
+      <div class="demo-frame"><video controls playsinline preload="metadata"><source src="restaurant-demo.mp4" type="video/mp4">Dein Browser unterstützt dieses Video nicht.</video></div>
+      <p class="demo-caption">KI-Demovideo – Konzeptbeispiel</p>
+    </div>
   </div></section>
-
+  <section class="stats" id="warum-social"><div class="container">
+    <div class="section-heading"><div class="eyebrow">Warum Social Media?</div><h2>Dein nächster Gast ist <span class="gold">online unterwegs.</span></h2><p>Eine Toast-Umfrage zeigt, wie Gäste Social Media bei der Restaurantwahl nutzen.</p></div>
+    <div class="stats-grid">
+      <article class="stat-card"><div class="stat-number">84 %</div><p>möchten auf Restaurant-Social-Media-Seiten Fotos von Speisen und Getränken sehen.</p></article>
+      <article class="stat-card"><div class="stat-number">62 %</div><p>schauen sich manchmal die Social-Media-Seite eines Restaurants an, bevor sie dort essen gehen.</p></article>
+      <article class="stat-card"><div class="stat-number">42 %</div><p>bevorzugen Social Media gegenüber Suchmaschinen, um neue Restaurants zu entdecken.</p></article>
+    </div>
+    <p class="stats-source">Quelle: Toast, «How Are Diners Using Social Media?» (4. November 2024), Umfrage unter 850 Social-Media-Nutzern in den USA ab 16 Jahren. Die Ergebnisse sind nicht repräsentativ für die Schweiz und garantieren keinen Geschäftserfolg. <a href="https://pos.toasttab.com/blog/on-the-line/restaurant-social-media" target="_blank" rel="noopener noreferrer">Studie ansehen</a>.</p>
+  </div></section>
   <section id="leistungen"><div class="container">
     <div class="section-heading"><div class="eyebrow">Was wir machen</div><h2>Content, der zu deiner <span class="gold">Marke</span> passt.</h2><p>Ob Restaurant, Coiffeur, Fitnessstudio oder lokales Geschäft: Wir entwickeln Videoinhalte passend zu deinem Unternehmen, deinen Angeboten und deinem visuellen Stil.</p></div>
-    <div class="services-grid">
-      <article class="service-card"><div class="service-number">01 / REELS</div><h3>Kurze Werbevideos</h3><p>Vertikale Videos für Instagram Reels und andere geeignete Social-Media-Plattformen. Mit kreativem Schnitt, passenden Texten und Musik.</p></article>
-      <article class="service-card"><div class="service-number">02 / KI + REAL</div><h3>Dein Unternehmen im Fokus</h3><p>Auf Wunsch kombinieren wir freigegebene Originalbilder und echte Produktfotos mit passenden KI-generierten Szenen.</p></article>
-      <article class="service-card"><div class="service-number">03 / SOCIAL</div><h3>Ein einheitlicher Auftritt</h3><p>Zusammenhängender visueller Stil, klare Botschaften und Content-Ideen, die zu deinem Unternehmen passen.</p></article>
-    </div>
+    <div class="services-grid"><article class="service-card"><div class="service-number">01 / REELS</div><h3>Kurze Werbevideos</h3><p>Vertikale Videos für Instagram Reels und andere geeignete Social-Media-Plattformen. Mit kreativem Schnitt, passenden Texten und Musik.</p></article><article class="service-card"><div class="service-number">02 / KI + REAL</div><h3>Dein Unternehmen im Fokus</h3><p>Auf Wunsch kombinieren wir freigegebene Originalbilder und echte Produktfotos mit passenden KI-generierten Szenen.</p></article><article class="service-card"><div class="service-number">03 / SOCIAL</div><h3>Ein einheitlicher Auftritt</h3><p>Zusammenhängender visueller Stil, klare Botschaften und Content-Ideen, die zu deinem Unternehmen passen.</p></article></div>
   </div></section>
-
   <section class="pricing" id="preise"><div class="container">
     <div class="section-heading"><div class="eyebrow">Transparente Einstiegspreise</div><h2>Einfach starten. <span class="gold">Besser auftreten.</span></h2><p>Wähle das Angebot, das zu deinem aktuellen Bedarf passt. Umfang und Liefertermin werden vor dem Auftrag gemeinsam vereinbart.</p></div>
-    <div class="pricing-grid">
-      <article class="price-card"><div class="price-label">Einzelauftrag</div><h3>Single Reel</h3><div class="price">CHF 30</div><p class="price-description">Ein einzelnes, KI-gestütztes Kurzvideo.</p>
-        <ul class="features"><li>Ein kurzes vertikales Reel</li><li>Kreativer Schnitt und Text</li><li>Passender visueller Stil</li><li>Material nach Absprache</li><li>Eine kleine Korrekturrunde</li></ul>
-        <a href="#kontakt" class="button button-secondary" data-package="Single Reel – CHF 30">Reel anfragen</a>
-      </article>
-      <article class="price-card featured"><div class="price-label">Komplettpaket</div><h3>Instagram Start</h3><div class="price">CHF 500</div><p class="price-description">Zehn Reels für einen einheitlichen Start.</p>
-        <ul class="features"><li>Zehn KI-gestützte Reels</li><li>Einheitlicher visueller Stil</li><li>Texte passend zum Unternehmen</li><li>Freigegebene Originalbilder möglich</li><li>Abgestimmte Korrekturen</li><li>Vorschläge zur Veröffentlichungsreihenfolge</li></ul>
-        <a href="#kontakt" class="button button-primary" data-package="Instagram Start – CHF 500">Startpaket anfragen</a>
-      </article>
-    </div>
+    <div class="pricing-grid"><article class="price-card"><div class="price-label">Einzelauftrag</div><h3>Single Reel</h3><div class="price">CHF 30</div><p class="price-description">Ein einzelnes, KI-gestütztes Kurzvideo.</p><ul class="features"><li>Ein kurzes vertikales Reel</li><li>Kreativer Schnitt und Text</li><li>Passender visueller Stil</li><li>Material nach Absprache</li><li>Eine kleine Korrekturrunde</li></ul><a href="#kontakt" class="button button-secondary" data-package="Single Reel – CHF 30">Reel anfragen</a></article>
+    <article class="price-card featured"><div class="price-label">Komplettpaket</div><h3>Instagram Start</h3><div class="price">CHF 500</div><p class="price-description">Zehn Reels für einen einheitlichen Start.</p><ul class="features"><li>Zehn KI-gestützte Reels</li><li>Einheitlicher visueller Stil</li><li>Texte passend zum Unternehmen</li><li>Freigegebene Originalbilder möglich</li><li>Abgestimmte Korrekturen</li><li>Vorschläge zur Veröffentlichungsreihenfolge</li></ul><a href="#kontakt" class="button button-primary" data-package="Instagram Start – CHF 500">Startpaket anfragen</a></article></div>
     <p class="pricing-note">Alle Preise in CHF. Der genaue Umfang, die benötigten Materialien, Korrekturen und Liefertermine werden vor Auftragserteilung vereinbart. Eine Instagram-Kontoerstellung, laufende Betreuung und Werbeanzeigen sind nicht automatisch enthalten.</p>
   </div></section>
-
-  <section id="portfolio"><div class="container">
-    <div class="section-heading"><div class="eyebrow">Kreative Möglichkeiten</div><h2>Ideen werden zu <span class="gold">Content.</span></h2><p>Unterschiedliche Branchen brauchen unterschiedliche visuelle Konzepte. Hier entstehen die ersten FrameForge-Demoprojekte.</p></div>
-    <div class="portfolio-grid">
-      <article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Restaurant &amp; Food</h3><p>Appetitliche Nahaufnahmen, warme Lichtstimmung und kreative Präsentation von Gerichten.</p></article>
-      <article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Fitness &amp; Sport</h3><p>Dynamische Schnitte, starke Bildsprache und motivierende Inhalte.</p></article>
-      <article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Lokale Unternehmen</h3><p>Produkte, Dienstleistungen und Angebote visuell ansprechend in Szene setzen.</p></article>
-    </div>
+  <section id="portfolio"><div class="container"><div class="section-heading"><div class="eyebrow">Kreative Möglichkeiten</div><h2>Ideen werden zu <span class="gold">Content.</span></h2><p>Unterschiedliche Branchen brauchen unterschiedliche visuelle Konzepte. Hier entstehen die ersten FrameForge-Demoprojekte.</p></div>
+    <div class="portfolio-grid"><article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Restaurant &amp; Food</h3><p>Appetitliche Nahaufnahmen, warme Lichtstimmung und kreative Präsentation von Gerichten.</p></article><article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Fitness &amp; Sport</h3><p>Dynamische Schnitte, starke Bildsprache und motivierende Inhalte.</p></article><article class="portfolio-card"><div class="portfolio-tag">Konzeptbereich</div><h3>Lokale Unternehmen</h3><p>Produkte, Dienstleistungen und Angebote visuell ansprechend in Szene setzen.</p></article></div>
     <p class="portfolio-notice">Diese Bereiche zeigen mögliche kreative Richtungen. Sie sind keine Behauptung über bereits abgeschlossene Kundenaufträge. Echte Demo-Videos werden hier ergänzt, sobald sie erstellt wurden.</p>
   </div></section>
-
-  <section id="ablauf"><div class="container">
-    <div class="section-heading"><div class="eyebrow">So funktioniert's</div><h2>In drei Schritten zum <span class="gold">Reel.</span></h2></div>
-    <div class="steps">
-      <article class="step"><div class="step-number">SCHRITT 01</div><h3>Du erzählst uns deine Idee</h3><p>Wir klären deine Ziele, die gewünschte Bildsprache, dein Angebot und das benötigte Material.</p></article>
-      <article class="step"><div class="step-number">SCHRITT 02</div><h3>Wir erstellen den Content</h3><p>Mit KI-gestützten Werkzeugen, freigegebenem Material und kreativem Schnitt entsteht dein Video.</p></article>
-      <article class="step"><div class="step-number">SCHRITT 03</div><h3>Du erhältst dein Reel</h3><p>Nach der vereinbarten Prüfung und Korrektur erhältst du die fertige Videodatei.</p></article>
-    </div>
-  </div></section>
-
-  <section id="kontakt"><div class="container"><div class="contact-box">
-    <div class="eyebrow">Lass uns starten</div><h2>Bereit für dein nächstes <span class="gold">Reel?</span></h2>
-    <p>Beschreibe kurz dein Unternehmen und deine Idee. Wir können gemeinsam besprechen, welches Format am besten zu deinem Angebot passt.</p>
-    <form id="contactForm">
-      <input type="text" id="name" name="name" placeholder="Dein Name oder Unternehmen" autocomplete="organization" required>
-      <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" autocomplete="email" required>
-      <select id="package" name="package" required><option value="">Welches Angebot interessiert dich?</option><option value="Single Reel – CHF 30">Einzelnes Reel – CHF 30</option><option value="Instagram Start – CHF 500">Instagram Start – CHF 500</option><option value="Individuelle Anfrage">Individuelle Anfrage</option></select>
-      <textarea id="message" name="message" placeholder="Erzähl uns kurz von deinem Unternehmen und deiner Idee." required></textarea>
-      <button type="submit" class="button button-primary">Anfrage per E-Mail vorbereiten</button>
-      <p class="form-note">Das Formular öffnet dein E-Mail-Programm mit einer vorbereiteten Nachricht. Es überträgt keine Daten direkt an einen Server.</p>
-    </form>
+  <section id="ablauf"><div class="container"><div class="section-heading"><div class="eyebrow">So funktioniert's</div><h2>In drei Schritten zum <span class="gold">Reel.</span></h2></div><div class="steps"><article class="step"><div class="step-number">SCHRITT 01</div><h3>Du erzählst uns deine Idee</h3><p>Wir klären deine Ziele, die gewünschte Bildsprache, dein Angebot und das benötigte Material.</p></article><article class="step"><div class="step-number">SCHRITT 02</div><h3>Wir erstellen den Content</h3><p>Mit KI-gestützten Werkzeugen, freigegebenem Material und kreativem Schnitt entsteht dein Video.</p></article><article class="step"><div class="step-number">SCHRITT 03</div><h3>Du erhältst dein Reel</h3><p>Nach der vereinbarten Prüfung und Korrektur erhältst du die fertige Videodatei.</p></article></div></div></section>
+  <section id="kontakt"><div class="container"><div class="contact-box"><div class="eyebrow">Lass uns starten</div><h2>Bereit für dein nächstes <span class="gold">Reel?</span></h2><p>Beschreibe kurz dein Unternehmen und deine Idee. Wir können gemeinsam besprechen, welches Format am besten zu deinem Angebot passt.</p>
+    <form id="contactForm"><input type="text" id="name" name="name" placeholder="Dein Name oder Unternehmen" autocomplete="organization" required><input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" autocomplete="email" required><select id="package" name="package" required><option value="">Welches Angebot interessiert dich?</option><option value="Single Reel – CHF 30">Einzelnes Reel – CHF 30</option><option value="Instagram Start – CHF 500">Instagram Start – CHF 500</option><option value="Individuelle Anfrage">Individuelle Anfrage</option></select><textarea id="message" name="message" placeholder="Erzähl uns kurz von deinem Unternehmen und deiner Idee." required></textarea><button type="submit" class="button button-primary">Anfrage per E-Mail vorbereiten</button><p class="form-note">Das Formular öffnet dein E-Mail-Programm mit einer vorbereiteten Nachricht. Es überträgt keine Daten direkt an einen Server.</p></form>
   </div></div></section>
 </main>
-<footer><div class="container footer-content">
-  <a href="#start" class="logo">FRAME<span>FORGE</span></a><p>KI-gestützter Social-Media-Content · Schweiz</p>
-  <a href="mailto:FrameForge.bussines@gmail.com">Kontakt per E-Mail</a><p>© <span id="year"></span> FrameForge</p>
-</div></footer>
+<footer><div class="container footer-content"><a href="#start" class="logo">FRAME<span>FORGE</span></a><p>KI-gestützter Social-Media-Content · Schweiz</p><a href="mailto:FrameForge.business@gmail.com">Kontakt per E-Mail</a><p>© <span id="year"></span> FrameForge</p></div></footer>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-  document.querySelectorAll("[data-package]").forEach(button => {
-    button.addEventListener("click", () => {
-      document.getElementById("package").value = button.dataset.package;
-    });
-  });
+  document.querySelectorAll("[data-package]").forEach(button => button.addEventListener("click", () => {document.getElementById("package").value = button.dataset.package;}));
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    const businessEmail = "FrameForge.bussines@gmail.com"; // Vor Veröffentlichung überprüfen!
+    const businessEmail = "FrameForge.business@gmail.com";
     const name = document.getElementById("name").value.trim();
     const customerEmail = document.getElementById("email").value.trim();
     const selectedPackage = document.getElementById("package").value;
     const message = document.getElementById("message").value.trim();
     const subject = encodeURIComponent("FrameForge Anfrage: " + selectedPackage);
-    const body = encodeURIComponent(
-      "Neue Anfrage über die FrameForge-Website\n\n" +
-      "Name / Unternehmen: " + name + "\n" +
-      "E-Mail: " + customerEmail + "\n" +
-      "Angebot: " + selectedPackage + "\n\nNachricht:\n" + message
-    );
+    const body = encodeURIComponent("Neue Anfrage über die FrameForge-Website\n\n" + "Name / Unternehmen: " + name + "\n" + "E-Mail: " + customerEmail + "\n" + "Angebot: " + selectedPackage + "\n\nNachricht:\n" + message);
     window.location.href = "mailto:" + businessEmail + "?subject=" + subject + "&body=" + body;
   });
 </script>
